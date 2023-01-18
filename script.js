@@ -5,11 +5,17 @@ const app = Vue.createApp({
             email:''
         }
     },
-})
 
-axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-.then(response => {
+    mounted(){
+        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+        .then((response) => {
+            const email = response.data.response;
+            this.email=email;
+        });
+    }
 
-})
+});
+
+
 
 app.mount('#root');
